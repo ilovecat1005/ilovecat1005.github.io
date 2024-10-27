@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法律諮詢AI助理</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        #marquee-container {
+            position: fixed;
+            left: 0;
+            bottom: 50px; /* 調整這個值以適應您的 footer 高度 */
+            width: 100%;
+            z-index: 999; /* 確保在 footer 之上，但在其他內容之下 */
+        }
+
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            background: rgba(245, 245, 245, 0.8);
+            padding: 10px 0;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+
+        /* 移除 body 的上邊距 */
+        body {
+            padding-top: 0;
+        }
+
+        /* 調整 main 內容的下邊距 */
+        main {
+            padding-bottom: 100px; /* 調整這個值以適應跑馬燈和 footer 的總高度 */
+        }
+
+        /* 確保 footer 在頁面底部 */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #f5f5f5;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="圖庫/法律頭貼.jpeg" alt="法律諮詢AI助理標誌" class="logo-image">
+            </div>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="功能選單.html">功能選單</a></li>
+                <li><a href="法律辭典.html">法律辭典</a></li>
+                <li><a href="關於我們.html">關於我們</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="projects">
+            <div class="project-grid">
+                <div class="project-card">
+                    <div id="marquee-container"></div>
+                    <div id="lawai-container" class="api-container">
+                        <iframe
+                            src="http://10.147.19.63/chat/01JMqSjJWvr7y7vo"
+                            frameborder="0"
+                            allow="microphone">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="copyright">&copy; 2024 法律諮詢AI助理. 版權所有。</div>
+    </footer>
+
+    <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-line"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61558645110360&locale=zh_TW" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61558645110360&locale=zh_TW" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="far fa-envelope"></i></a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js"></script>
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]');
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            initMarquee();
+        });
+
+        function initMarquee() {
+            const laws = [
+                { text: "內政部組織法", color: "#FF5733", size: "24px" },
+                { text: "海洋委員會組織法", color: "#33FF57", size: "18px" },
+                { text: "國土計畫法", color: "#3357FF", size: "22px" },
+                { text: "海岸管理法", color: "#FF33F1", size: "20px" },
+                { text: "濕地保育法", color: "#33FFF1", size: "26px" }
+            ];
+
+            const container = document.getElementById('marquee-container');
+            const marquee = document.createElement('div');
+            marquee.className = 'marquee';
+
+            // 隨機排序法規
+            laws.sort(() => Math.random() - 0.5);
+
+            laws.forEach(law => {
+                const span = document.createElement('span');
+                span.textContent = law.text;
+                span.style.color = law.color;
+                span.style.fontSize = law.size;
+                marquee.appendChild(span);
+            });
+
+            container.appendChild(marquee);
+        }
+    </script>
+</body>
+</html>

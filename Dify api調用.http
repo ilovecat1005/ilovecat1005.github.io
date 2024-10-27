@@ -1,0 +1,19 @@
+POST http://10.147.19.63/v1/chat-messages
+Authorization: Bearer app-ySDR8b5IuL5U3sobrhc3GSL7
+Content-Type: application/json
+
+{
+    "inputs": {},
+    "query": "您好",
+    "response_mode": "blocking",
+    "conversation_id": "ecf2759e-a2b9-423e-ab60-80dca90ee8a9",
+    "user": "abc-123",
+    "auto_generate": true,
+    "files": [
+        {
+            "type": "image",
+            "transfer_method": "remote_url",
+            "url": "https://cloud.dify.ai/logo/logo-site.png"
+        }
+    ]
+}

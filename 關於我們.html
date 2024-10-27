@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        /* 現有的樣式保持不變 */
+        
+        /* 新增這個規則 */
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5; /* 可選:為了內容區域與背景形成對比 */
+        }
+        .team-description {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .team-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .photo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .photo-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .photo-row img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
+        .photo-row.large img {
+            max-width: 400px;
+        }
+        @media (max-width: 768px) {
+            .photo-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            .photo-row img, .photo-row.large img {
+                max-width: 100%;
+            }
+        }
+        
+        /* 新增輪播樣式 */
+        .carousel {
+            position: relative;
+            width: 50%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item {
+            min-width: 100%;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .carousel-control.prev { left: 10px; }
+        .carousel-control.next { right: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="圖庫/法律頭貼.jpeg" alt="法律諮詢AI助理標誌" class="logo-image">
+            </div>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="功能選單.html">功能選單</a></li>
+                <li><a href="法律辭典.html">法律辭典</a></li>
+                <li><a href="關於我們.html">關於我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="about-content">
+            <div class="team-description">
+                <img src="圖庫/關於我們.jpg" alt="團隊圖片描述" class="team-img">
+                <h3>我們是一群來自真理大學資管系的四年級生，懷抱著熱情。</h3>
+                <h3>在專題討論中，我們決定製作一個專為法律相關問題設計的諮詢平台</h3>
+                <h3>致力於為需要法律幫助的每一位提供快速準確的解答。我們希望這個平台能成為你們解決法律問題的得力助手。</h3>
+                <h3>幫助正在遇到困惑的你們，更加方便地獲取最新的法律資訊。</h3>
+                <h3>我們相信，通過諮詢平台的幫助，能夠讓法律知識變得更加普及、易懂，也能有效幫助你們度過重重難關。</h3>
+            </div>
+            
+            <div class="photo-container">
+                <div class="photo-row">
+                    <img src="圖庫/團隊合照.jpg" alt="團隊合照">
+                    <img src="圖庫/勇於挑戰.jpg" alt="勇於挑戰">
+                </div>
+                <!-- <div class="photo-row">
+                    <img src="圖庫/發表證明.jpg" alt="發表證明" style="width: auto; height: auto;">
+                </div> -->
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item"><img src="圖庫/發表證明.jpg" alt="發表證明"></div>
+                        <div class="carousel-item"><img src="圖庫/2024ICIM研討會1.jpg" alt="2024ICIM研討會1"></div>
+                        <div class="carousel-item"><img src="圖庫/2024ICIM研討會2.jpg" alt="2024ICIM研討會2"></div>
+                        <div class="carousel-item"><img src="圖庫/2024ICIM研討會3.jpg" alt="2024ICIM研討會3"></div>
+                    </div>
+                    <a href="#" class="carousel-control prev">&lt;</a>
+                    <a href="#" class="carousel-control next">&gt;</a>
+                </div>
+                
+                <div class="photo-row">
+                    <img src="圖庫/指導教授.jpg" alt="指導教授">
+                </div>
+                <div class="photo-row">
+                    <div class="member" style="margin-right: 20px;">
+                        <img src="圖庫/王柳鋐個人照.jpg" alt="成員0" style="width: 200px; height: 200px; border-radius: 15px;">
+                        <h3>王柳鋐 指導老師</h3>
+                        <p>資管系的傳奇人物。</p>
+                    </div>
+                </div>
+                <div class="photo-row">
+                    <img src="圖庫/團隊成員.jpg" alt="團隊成員">
+                </div>
+                <!-- 團隊介紹圖片 -->
+                <div style="display: flex; align-items: center; margin-top: 20px;">
+                <!-- 團隊成員介紹 -->
+                </div>
+                    <section class="team-members" style="display: flex; margin-top: 20px; ">
+                    <div class="member" style="margin-right: 20px;">
+                        <img src="圖庫/鄧雅之個人照.jpg" alt="成員1" style="width: 200px; height: 200px; border-radius: 15px;">
+                        <h3>鄧雅之</h3>
+                        <p>我是鴨子呱呱。</p>
+                        </div>
+          
+                    <div class="member" style="margin-right: 20px; ">
+                        <img src="圖庫/洪偉國個人照.jpg" alt="成員2" style="width: 200px; height: 200px; border-radius: 15px;">
+                        <h3>洪偉國</h3>
+                        <p>我是恐龍吼吼。</p>
+                    </div>
+          
+                    <div class="member" style="margin-right: 20px;">
+                        <img src="圖庫/楊迦得個人照.jpg" alt="成員3" style="width: 200px; height: 200px; border-radius: 15px;">
+                        <h3>楊迦得</h3>
+                        <p>我是山羊咩咩。</p>
+                    </div>
+          
+                    <div class="member">
+                        <img src="圖庫/林裕鈞個人照.jpg" alt="成員4" style="width: 200px; height: 200px; border-radius: 15px;">
+                        <h3>林裕鈞</h3>
+                        <p>我是青蛙嘓嘓。</p>
+                    </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="copyright">&copy; 2024 法律諮詢AI助理. 版權所有。</div>
+    </footer>
+
+    <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-line"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61558645110360&locale=zh_TW" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61558645110360&locale=zh_TW" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="far fa-envelope"></i></a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js"></script>
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]');
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+        
+        // 新增輪播功能的JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = document.querySelector('.carousel-control.prev');
+            const nextBtn = document.querySelector('.carousel-control.next');
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                carousel.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            prevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                showSlide(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentIndex = (currentIndex + 1) % items.length;
+                showSlide(currentIndex);
+            });
+
+            // 自動輪播
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % items.length;
+                showSlide(currentIndex);
+            }, 8000); // 每8秒切換一次
+        });
+    </script>
+</body>
+</html>

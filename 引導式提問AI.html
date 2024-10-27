@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引導式提問AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .question-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .question-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .question-form input[type="text"],
+        .question-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        .question-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .question-form button:hover {
+            background-color: #0056b3;
+        }
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .category-btn {
+            flex: 1 0 calc(16.666% - 10px);
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .category-btn:hover {
+            background-color: #e0e0e0;
+        }
+        .category-btn.active {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="圖庫/法律頭貼.jpeg" alt="法律諮詢AI助理標誌" class="logo-image">
+            </div>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="功能選單.html">功能選單</a></li>
+                <li><a href="法律辭典.html">法律辭典</a></li>
+                <li><a href="關於我們.html">關於我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            <h1>引導式提問AI</h1>
+            <p>歡迎使用我們的引導式提問AI系統。請按照以下步驟提出您的法律問題，我們的AI將為您提供相關的法律建議。</p>
+            
+            <div class="question-form">
+                <form id="aiQuestionForm">
+                    <label for="category">請選擇法律類別：</label>
+                    <div class="category-buttons">
+                        <button type="button" class="category-btn" data-value="民法">民法</button>
+                        <button type="button" class="category-btn" data-value="刑法">刑法</button>
+                        <button type="button" class="category-btn" data-value="商業法">商業法</button>
+                        <button type="button" class="category-btn" data-value="勞動法">勞動法</button>
+                        <button type="button" class="category-btn" data-value="行政法">行政法</button>
+                        <button type="button" class="category-btn" data-value="其他">其他</button>
+                    </div>
+                    <input type="hidden" id="category" name="category" required>
+
+                    <label for="question">請描述您的法律問題：</label>
+                    <textarea id="question" name="question" rows="4" required></textarea>
+
+                    <button type="submit">提交問題</button>
+                </form>
+            </div>
+
+            <div id="aiResponse" style="display: none;">
+                <h2>法律諮詢AI助理回覆：</h2>
+                <p id="responseText"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="copyright">&copy; 2024 法律諮詢AI助理. 版權所有。</div>
+    </footer>
+
+    <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-line"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61558645110360&locale=zh_TW" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61558645110360&locale=zh_TW" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="far fa-envelope"></i></a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js"></script>
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]');
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('category').value = this.getAttribute('data-value');
+            });
+        });
+
+        document.getElementById('aiQuestionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!document.getElementById('category').value) {
+                alert('請選擇一個法律類別');
+                return;
+            }
+            // 這裡可以添加發送問題到AI後端的邏輯
+            // 現在只是顯示一個模擬的回覆
+            document.getElementById('aiResponse').style.display = 'block';
+            document.getElementById('responseText').textContent = '這是AI的模擬回覆。在實際應用中，這裡會顯示基於您的問題生成的回答。';
+        });
+    </script>
+</body>
+</html>

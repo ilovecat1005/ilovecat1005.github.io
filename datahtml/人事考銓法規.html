@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人事考銓法規</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../static/datahtmlstyle.css">
+</head>
+<body>
+    <!-- 在 body 的開始位置添加以下代碼 -->
+    <div class="back-button">
+        <a href="../法律辭典.html">
+            <i class="fas fa-arrow-left"></i>
+            返回
+        </a>
+    </div>
+
+    <header>
+        <!-- 這裡可以複製 法律辭典.html 的 header 內容 -->
+    </header>
+
+    <main>
+        <section class="law-content" id="law-database">
+            <h2>人事考銓法規</h2>
+            <div class="law-content">
+                <iframe id="lawFrame" src=""></iframe>
+            </div>
+            <div class="law-grid" id="lawGrid">
+                <!-- 法規列表將通過 JavaScript 動態加載 -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- 這裡可以複製 法律辭典.html 的 footer 內容 -->
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js"></script>
+    <script>
+        let mockData; // 宣告全局變量
+
+        window.addEventListener('load', function() {
+            loadLawList();
+        });
+
+        function loadLawList() {
+            mockData = [ // 將 mockData 賦值給全局變量
+                { title: "公務人員考試法", content: "公務人員之考試，以公開競爭方式行之，..." },
+                { title: "公務人員升官等考試法", content: "本法規定公務人員升官等考試的相關事項..." },
+                { title: "公務人員任用法", content: "本法依公務人員基準法第九條規定制定之...." },
+                { title: "公務員服務法", content: "公務員應恪守誠實、清廉、謹慎、勤勉、負責的原則..." },
+                { title: "公務人員俸給法", content: "本法規定公務人員的薪資待遇..." },
+                { title: "公務人員考績法", content: "公務人員之考績，應本綜覽全年成績之旨，..." },
+                { title: "公務人員考績法施行細則", content: "本細則依公務人員考績法第二十三條規定訂定之..." },
+                { title: "公教人員保險法", content: "本法為保障公教人員生活，促進社會安全，..." },
+                { title: "公務人員退休資遣撫卹法", content: "本法依公務人員基準法第十條規定制定之..." },
+                { title: "公務人員個人專戶制退休資遣撫卹法", content: "為建立公務人員退休資遣撫卹制度，..." },
+                { title: "公務人員個人專戶制退休資遣撫卹法施行細則", content: "本細則依公務人員個人專戶制退休資遣撫卹法第九十三條規定訂定之..." },
+                { title: "公務人員陞遷法", content: "公務人員之陞遷，應本人與事適切配合之旨，..." },
+                { title: "公務人員陞遷法施行細則", content: "本細則依公務人員陞遷法第十九條規定訂定之..." },
+                { title: "公務人員行政中立法", content: "為確保公務人員依法行政、執行公正、政治中立，..." },
+                { title: "公務人員行政中立法施行細則", content: "本細則依公務人員行政中立法第十九條規定訂定之..." },
+                { title: "公務人員保障法", content: "為保障公務人員之權益，特制定本法..." },
+                { title: "公務人員請假規則", content: "公務人員之請假，依本規則行之..." },
+                { title: "專門職業及技術人員轉任公務人員條例", content: "為使專門職業及技術人員轉任公務人員，..." },
+                { title: "天然災害停止上班及上課作業辦法", content: "本辦法依公務人員保障法第十九條第二項規定訂定之..." },
+                { title: "公務人員因公涉訟輔助辦法", content: "本辦法依公務人員保障法第二十二條第四項規定訂定之..." },
+                { title: "中央政府機關員額管理辦法", content: "本辦法依中央政府機關總員額法第四條第五項規定訂定之..." },
+                { title: "中央政府機關總員額法", content: "為管理中央政府機關員額，增進員額調配彈性，..." },
+                { title: "公務人員交代條例", content: "公務人員之交代，除法律另有規定外，依本條例行之..." },
+                { title: "公務人員協會法", content: "為保障公務人員權益，促進聯誼合作，..." },
+                { title: "公教人員保險失能給付標準", content: "本標準依公教人員保險法第十三條第四項規定訂定之..." },
+                { title: "考試院組織法", content: "本法依憲法第八十九條制定之..." },
+                { title: "行政法人法", content: "為規範行政法人之設立、組織、運作、監督及解散，..." },
+                { title: "典試法", content: "國家考試之典試，除檢覈外，依本法行之..." },
+                { title: "政務人員退職撫卹條例", content: "政務人員之退職、撫卹，依本條例之規定；..." },
+                { title: "涉及國家安全或重大利益公務人員特殊查核辦法", content: "本辦法依公務人員安全法第五條之一第三項規定訂定之..." },
+                { title: "高階公務人員中長期發展性訓練辦法", content: "本辦法依公務人員訓練進修法第十二條第二項規定訂定之..." },
+                { title: "國家考試分數轉換辦法", content: "本辦法依典試法第二十五條第二項規定訂定之..." },
+                { title: "國家考試報名及申請案件電子送達實施辦法", content: "本辦法依電子簽章法第四條第二項規定訂定之..." },
+                { title: "國家考試闈場安全及管理辦法", content: "本辦法依典試法第二十七條第二項規定訂定之..." },
+                { title: "專門職業及技術人員高等考試大地工程技師考試分階段考試規則", content: "本規則依專門職業及技術人員考試法第十五條規定訂定之..." },
+                { title: "勞工保險監理委員會現職人員轉任勞動部暨勞工保險局現職人員轉任勞動部勞工保險局、勞動部職業安全衛生署與勞動部勞動基金運用局比照改任官職等級及退撫事項辦法", content: "本辦法依勞動部組織法第十條第二項規定訂定之..." },
+                { title: "醫事人員人事條例", content: "醫事人員人事事項，依本條例之規定；..." },
+                { title: "公務人員退休法(已廢)", content: "本法已廢止，由公務人員退休資遣撫卹法取代..." },
+                { title: "公務人員撫卹法(已廢)", content: "本法已廢止，由公務人員退休資遣撫卹法取代..." },
+                { title: "公務人員撫卹法施行細則(已廢)", content: "本細則已廢止，由公務人員退休資遣撫卹法施行細則取代..." },
+                { title: "公務員兼任非營利事業或團體受有報酬職務許可辦法(已廢)", content: "本辦法已廢止..." },
+                { title: "監試法(已廢)", content: "本法已廢止，相關規定已納入典試法..." }
+            ];
+
+            const lawGrid = document.getElementById('lawGrid');
+            mockData.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'law-item';
+                div.innerHTML = `<a href="#" onclick="return loadLaw('${item.title}')">${item.title}</a>`;
+                lawGrid.appendChild(div);
+            });
+        }
+        function loadLaw(lawName) {
+            const selectedLaw = mockData.find(item => item.title === lawName);
+            if (selectedLaw) {
+                const url = `C:/Users/weber/OneDrive - 真理大學/煞氣的四人/專題/上架網頁(偉國)/data/人事考銓法規/${encodeURIComponent(selectedLaw.title)}.txt`;
+                console.log("嘗試加載的 URL:", url);
+                document.getElementById('lawFrame').src = url;
+            } else {
+                document.getElementById('lawFrame').srcdoc = '<p>找不到該法規的內容。</p>';
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

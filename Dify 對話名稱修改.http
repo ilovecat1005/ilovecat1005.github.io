@@ -1,0 +1,9 @@
+POST http://10.147.19.63/v1/conversations/7e0499e1-9bb2-4825-a646-0c31964aeba9/name
+Authorization: Bearer app-ySDR8b5IuL5U3sobrhc3GSL7
+Content-Type: application/json
+
+{
+    "auto_generate": true,
+    "user": "8e2a0115-f28d-47dc-82a7-64d0ba584ec0",
+    "default_language": "zh_Hans"
+}

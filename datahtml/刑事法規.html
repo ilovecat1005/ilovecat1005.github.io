@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刑事法規</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        .law-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .law-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .law-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .law-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- 這裡可以複製 法律辭典.html 的 header 內容 -->
+    </header>
+
+    <main>
+        <section id="law-database">
+            <h2>刑事法規</h2>
+            <div class="law-content" id="lawContent">
+                <!-- 法規內容將通過 JavaScript 動態加載 -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- 這裡可以複製 法律辭典.html 的 footer 內容 -->
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js"></script>
+    <script>
+        // 這裡將添加加載法規內容的 JavaScript 代碼
+        window.addEventListener('load', function() {
+            loadLawContent();
+        });
+
+        function loadLawContent() {
+            // 這裡應該使用 AJAX 或 Fetch API 來加載 datasets.jsonl 的內容
+            // 為了示例，我們將使用一些模擬數據
+            const mockData = [
+                { title: "公務人員任用法", content: "本法依公務人員基準法第九條規定制定之。..." },
+                { title: "公務人員考試法", content: "公務人員之考試，以公開競爭方式行之，..." },
+                // 添加更多模擬數據...
+            ];
+
+            const lawContent = document.getElementById('lawContent');
+            mockData.forEach(item => {
+                const lawItem = document.createElement('div');
+                lawItem.className = 'law-item';
+                lawItem.innerHTML = `
+                    <h3>${item.title}</h3>
+                    <p>${item.content}</p>
+                `;
+                lawContent.appendChild(lawItem);
+            });
+        }
+    </script>
+</body>
+</html>
